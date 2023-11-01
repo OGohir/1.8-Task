@@ -1,0 +1,59 @@
+import greenfoot.*;  // Import necessary Greenfoot classes
+
+/**
+ * Write a description of class Butler here.
+ * 
+ * @author (your name)  // Author information or comments.
+ * @version (a version number or a date)  // Version information or comments.
+ */
+
+public class Butler extends Actor  // Define a class named "Butler"
+    {
+    /**
+     * Act - do whatever the Butler wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+
+    // Variable declaration
+
+    // Stores string value for the current task.
+    String task = "";
+    // Stores string value for completed tasks.
+    String completedTasks = "";
+    // Stores integer value for the count of tasks.
+    int taskCount = 0;
+    // Stores string value for the butler's rating (using asterisks).
+    String rating = "*";
+    // Stores integer value for the rating value (starts at 1).
+    int ratingValue = 1;
+    // Stores boolean (true or false) value indicating if the butler is working.
+    boolean working = false;
+
+    // Set the 'task' variable to the provided new task.
+    void startTask(String newTask){
+        task = newTask; 
+    }
+    // When this method is invoked, set 'working' to true to indicate butler is working
+    void getToWork(){
+        working = true;
+    }
+    // Return the value of 'taskCount.'
+    int getTaskCount(){
+        return taskCount; 
+    }
+    // Check if the butler is tired (task count greater than 10) return true.
+    boolean isTired(){
+        return taskCount > 10; 
+    }
+    // Adds a completed task
+    void completeTask(){
+        //Separates the new task from the previous completed tasks by adding a space between them
+        completedTasks = completedTasks + " " + task;
+        task = "";  // Resets 'task' to an empty string.
+        taskCount = taskCount + 1;  // increase the 'taskCount' by 1.
+    }
+    // Returns the completed tasks, which is changed according to the previous methods
+    String getCompletedTasks(){
+        return completedTasks;
+    }
+}
